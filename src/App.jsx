@@ -1,15 +1,10 @@
 import { styled } from 'styled-components';
 import Chart from 'chart.js/auto';
-import {
-  CategoryScale,
-  BarElement,
-  LinearScale,
-  Tooltip,
-  Legend,
-} from 'chart.js';
+import { CategoryScale } from 'chart.js';
 import { useEffect, useState } from 'react';
 import BarChart from './components/BarChart';
 import { Data } from '../utils/data';
+import makedata from '../utils/makedata';
 
 const Contianer = styled.div`
   height: 800px;
@@ -32,34 +27,9 @@ const WorldDataContainer = styled.div`
   }
 `;
 
-Chart.register(CategoryScale, BarElement, LinearScale, Tooltip, Legend);
+Chart.register(CategoryScale);
 
 const worldDatas = Data.filter((el) => el.Country_name == 'World');
-
-const makedata = (year1) => {
-  const newDatas = [];
-  // add color to country
-  // Data.map(el=>)
-  // filter by year
-  Data?.map((el) => {
-    if (
-      el.Year == year1 &&
-      !el.Country_name.includes('Less') &&
-      !el.Country_name.includes('Upper') &&
-      !el.Country_name.includes('(') &&
-      !el.Country_name.includes('High') &&
-      !el.Country_name.includes('Low') &&
-      !el.Country_name.includes('Least') &&
-      !el.Country_name.includes('More')
-    ) {
-      newDatas.push(el);
-    }
-  });
-  newDatas.sort((a, b) => b.Population - a.Population);
-  const result = newDatas.slice(1, 15);
-  // console.log(result);
-  return result;
-};
 
 function stringToColor(text) {
   let hash = 0;
@@ -88,7 +58,6 @@ function App() {
         ),
         borderColor: 'black',
         borderWidth: 1,
-        // barThickness: 50,
       },
     ],
   });
