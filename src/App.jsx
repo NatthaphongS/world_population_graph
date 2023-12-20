@@ -93,7 +93,7 @@ function App() {
       <BarChart chartData={chartData} />
       <WorldDataContainer>
         <h1>{year}</h1>
-        <h2>Total :{new Intl.NumberFormat().format(worldData.Population)}</h2>
+        <h2>Total : {new Intl.NumberFormat().format(worldData.Population)}</h2>
       </WorldDataContainer>
     </Contianer>
   );
