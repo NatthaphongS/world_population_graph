@@ -1,5 +1,5 @@
 {
-  "homepage": "https://natthaphongs.github.io/world_population_graph",
+  "homepage": "http://NatthaphongS.github.io/world_population_graph",
   "name": "world_population_app",
   "private": true,
   "version": "0.0.0",
@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "predeploy": "pnpm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
